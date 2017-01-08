@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{
+                text-align: center;
+                background-color: AliceBlue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BAMAZON</h1>
+        <h2>The worse E-commerce website on the interweb</h2>
+        <h3>Think you can do worse?</h3>
+        <h4>Think again.</h4>
+
+        <span>Enter product ID</span>
+        <input class="itemID" placeholder="1-10">
+        <br>
+        <span>Enter # units</span>
+        <input class="clientQuantity" placeholder="1-10">
+        <br>
+        <input type='submit' class="submitBtn"/>
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        //when i click...
+        $(".submitBtn").on('click',function(){
+
+            //get values from input box
+            var itemID = parseFloat($(".itemID").val());
+            var clientQuantity = parseFloat($(".clientQuantity").val());
+
+            //check if input are numbers...
+            if ($.isNumeric(itemID) && $.isNumeric(clientQuantity)){
+                console.log('input are numbers. it is good');
+                //then call api
+                callAPI(itemID, clientQuantity);
+            } else{
+                alert("Please enter in a number. This website is fragile.")
+            }
+
+        })//onclick
+
+        function callAPI(itemID, clientQuantity){
+            //post the info to the node server
+            $.post( "http://localhost:8080/?itemID=" + itemID + "&clientQuantity=" + clientQuantity );
+        }
+
+
+    </script>
+</html>
