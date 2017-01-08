@@ -61,6 +61,9 @@ var myServer = http.createServer(function(request, response){
 
             if (StockQuantity < clientQuantity){
               console.log('Insufficient quantity!')
+              response.setHeader('Access-Control-Allow-Origin', '*');
+              response.write(JSON.stringify('Insufficient quantity!'))
+              response.end();
             } else {
               console.log("items left: " + itemsLeft)
 
