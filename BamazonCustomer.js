@@ -17,7 +17,7 @@ connection.connect();
 
 
 
-// ========== Listen to shyt from the website ============================
+// ========== Listen to shyt from the shitty website ============================
 
 var myServer = http.createServer(function(request, response){
     // console.log(request.url) //this will log everything after localhost:8080/
@@ -71,6 +71,9 @@ function readmySQL(itemID, clientQuantity){
 
 
 
+
+
+
 // ========== update SQL once the item is ordered ===================
 
 function updateSQL(itemID,itemsLeft){
@@ -81,6 +84,10 @@ function updateSQL(itemID,itemsLeft){
     })
 
 }//updateSQL
+
+
+
+
 
 
 

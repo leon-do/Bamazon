@@ -25,9 +25,18 @@
         <input type='submit' class="submitBtn"/>
     </body>
 
+
+
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script type="text/javascript">
+
+
         //when i click...
         $(".submitBtn").on('click',function(){
 
@@ -38,15 +47,15 @@
             //check if input are numbers...
             if ($.isNumeric(itemID) && $.isNumeric(clientQuantity)){
                 console.log('input are numbers. it is good');
-                //then call api
-                callAPI(itemID, clientQuantity);
+                //then post
+                postMyShit(itemID, clientQuantity);
             } else{
                 alert("Please enter in a number. This website is fragile.")
             }
 
         })//onclick
 
-        function callAPI(itemID, clientQuantity){
+        function postMyShit(itemID, clientQuantity){
             //post the info to the node server
             $.post( "http://localhost:8080/?itemID=" + itemID + "&clientQuantity=" + clientQuantity );
         }
